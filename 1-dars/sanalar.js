@@ -26,13 +26,13 @@
 // },2000);
 
 //--------7task---------
-const id =Chiqarish(() => {
-  hisob++;
-  console.log("Tik-tak", hisob);
+// const id =Chiqarish(() => {
+//   hisob++;
+//   console.log("Tik-tak", hisob);
 
-  if (hisob === 3) {
-    console.log(Chiqarish());
-  }
-}, 1000);
+//   if (hisob === 3) {
+//     console.log(Chiqarish());
+//   }
+// }, 1000);
 
  
