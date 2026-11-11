@@ -56,12 +56,13 @@
     let BirinchiOhirgi=document.querySelectorAll("#shop");
     console.log(BirinchiOhirgi[0,3]);
     
-    // let elementSibling=document.querySelectorAll("#card2");
-    // let akaUka=elementSibling.nextElementSibling("h3")
-    // console.log(akaUka)
+    let elementSibling=document.querySelector("#card2");
+    let akaUka=elementSibling.nextElementSibling
+    console.log(akaUka)
 
-    let otaElement=document.querySelectorAll(".stock h3 ");
-    console.log(otaElement)
+    let otaElement=document.querySelector(".stock");
+    let stochParent=otaElement.parentElement.firstElementChild.textContent;
+    console.log(stochParent)
     
   </script>
 </body>
