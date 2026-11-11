@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 10px;
+        }
+
+        input {
+            border-radius: 13px;
+            padding: 5px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        button {
+            color: white;
+            background-color: lightcoral;
+            border-radius: 13px;
+            border: 1px solid lightcoral;
+            padding: 6px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Birinchi masala</h2>
+    <input type="text" id="input">
+    <input type="text" id="input2">
+    <button id="button">Saqlash</button>
+    <p id="chiqarish"></p>
+    <br>
+    <h2>Ikkinchi masala</h2>
+    <input type="number" id="javob">
+    <button id="qoshish">Qo'shish</button>
+    <button id="ayirish">Ayirish</button>
+    <br>
+    <h2>Uchinchi masala</h2>
+    <div class="rang">
+        <button id="rang">Rejimni almashtirish</button>
+    </div>
+    <br>
+    <h2>To'rtinchi masala</h2>
+    <input type="text" id="matn">
+    <button id="eslash">Eslab qolish</button>
+    <br>
+    <h2>Beshinchi masala</h2>
+    <p>LocalStorage - malumot uzoq vaqt saqlanib qoladi </p>
+    <p>SessionStorage - faqat biz ochib turgan oynada turadi qayta kirsak saqlanib qolmaydi</p>
+    <script>
+        document.getElementById("button").onclick = function() {
+            let input = document.getElementById("input").value;
+            let input2 = document.getElementById("input2").value;
+            localStorage.setItem("Ism", input);
+            localStorage.setItem("Familya", input2);
+            document.getElementById("chiqarish").textContent = "Assalomu aleykum " + input + " " + input2;
+        }
+
+        let ism = localStorage.getItem("Ism");
+        let familya = localStorage.getItem("Familya");
+        if (ism && familya) {
+            document.getElementById("chiqarish").textContent = "Assalomu aleykum " + ism + " " + familya;
+        } else {
+            document.getElementById("chiqarish").textContent = "Assalomu aleykum ustoz";
+        }
+
+
+
+
+        let raqam = localStorage.getItem("Son") || 0;
+        document.getElementById("javob").value = raqam;
+
+        document.getElementById("qoshish").onclick = function() {
+            raqam++;
+            document.getElementById("javob").value = raqam;
+            localStorage.setItem("Son", raqam);
+        }
+
+        document.getElementById("ayirish").onclick = function() {
+            raqam--;
+            document.getElementById("javob").value = raqam;
+            localStorage.setItem("Son", raqam);
+        }
+
+
+
+        
+        let change = localStorage.getItem("change") || "white";
+        document.bgColor = change;
+        if (change == "black") {
+            document.fgColor = "white";
+        } else {
+            document.fgColor = "black";
+        }
+
+        
+        let saqlangan = sessionStorage.getItem("Matn");
+        if (saqlangan) {
+            document.getElementById("matn").value = saqlangan;
+        }
+
+        document.getElementById("eslash").onclick = function() {
+            let matn = document.getElementById("matn").value;
+            sessionStorage.setItem("Matn", matn);
+        }
+    </script>
+</body>
+</html>

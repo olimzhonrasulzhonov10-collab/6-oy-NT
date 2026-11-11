@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM amaliyot</title>
+  <style>
+    .highlight { background-color: yellow; }
+    .done { text-decoration: line-through; color: gray; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <h1 id="title">Mening vazifalarim</h1>
+  <p class="info">Bugungi reja:</p>
+
+  <ul id="list">
+    <li class="task">HTML o'rganish</li>
+    <li class="task">CSS o'rganish</li>
+    <li class="task">JavaScript o'rganish</li>
+    <li class="task">Dam olish</li>
+  </ul>
+  <p class="info">Eslatma: har kuni mashq qiling.</p>
+  <script>
+    document.getElementById("title").textContent="Mening kunlik rejam"
+
+    const RangGrey=document.querySelector(".info");
+    RangGrey.style.color="grey"
+
+    const haylayt=document.getElementById("list");
+    haylayt.firstElementChild.classList.add("highlight")
+    haylayt.lastElementChild.classList.add("done")
+
+   for(let hammasi of haylayt.children){
+    console.log(hammasi.textContent)
+   }
+  </script>
+</body>
+</html>
