@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 20px;
+        }
+        div{
+            margin-bottom: 20px;
+        }
+        img{
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <button id="tugma">Bos</button>
+    </div>
+
+    <div>
+        <img id="rasm" src="like.svg" alt="like">
+    </div>
+
+    <div>
+        <input type="password" id="parol" placeholder="Parol">
+        <label><input type="checkbox" id="korish">Parolni Ko'rish</label>
+    </div>
+
+    <div>
+        <input type="text" id="vazifa-input" placeholder="Vazifa">
+        <button id="qoshish-tugma">Qo'shish</button>
+        <ul id="vazifa-royxat"></ul>
+    </div>
+
+    <div>
+        <input type="text" id="ism" placeholder="Ism">
+        <input type="number" id="yosh" placeholder="Yosh">
+        <button id="tekshirish">Tekshirish</button>
+        <p id="javob"></p>
+    </div>
+
+    <div>
+        <button id="laykTugma">Like</button>
+        <span id="soni">0</span>
+    </div>
+
+    <script>
+        let tugma = document.getElementById("tugma");
+        tugma.addEventListener("click", function(){
+            tugma.textContent = "Bosildi!";
+        })
+
+        let rasm = document.getElementById("rasm");
+        rasm.addEventListener("mouseover", function(){
+            rasm.style.width = "250px";
+        })
+        rasm.addEventListener("mouseout", function(){
+            rasm.style.width = "150px";
+        })
+
+        let parol = document.getElementById("parol");
+        let korish = document.getElementById("korish");
+        korish.addEventListener("change", function(){
+            if(korish.checked){
+                parol.type = "text";
+            } else {
+                parol.type = "password";
+            }
+        })
+
+
+
+        
+        let ism = document.getElementById("ism");
+        let yosh = document.getElementById("yosh");
+        let tekshirish = document.getElementById("tekshirish");
+        let javob = document.getElementById("javob");
+
+        tekshirish.addEventListener("click", function(){
+            if(ism.value === "" || yosh.value === ""){
+                javob.textContent = "Xato, bo'sh joy bor";
+            } else if(yosh.value > 18){
+                javob.textContent = "Xush kelibsiz";
+            } else {
+                javob.textContent = "Kechirasiz, siz hali yoshsiz";
+            }
+        })
+
+        let liked = false;
+        let son = 0;
+        let laykTugma = document.getElementById("laykTugma");
+        let laykSoni = document.getElementById("soni");
+
+        laykTugma.addEventListener("click", function(){
+            if(liked === false){
+                liked = true;
+                son++;
+                laykTugma.textContent = "Liked";
+            } else {
+                liked = false;
+                son--;
+                laykTugma.textContent = "Like";
+                
+
+            }
+            laykSoni.textContent = son;
+        })
+    </script>
+</body>
+</html>
