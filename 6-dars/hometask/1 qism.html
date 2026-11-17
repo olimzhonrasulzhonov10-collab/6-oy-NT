@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Massivdan kitob kartalari</h1>
+    <h3>1.Ro'yxat</h3>
+    <p id="card"></p>
+    <script>
+        let kitoblarRoyxati=["O'tkan kunlar", "Mehrobdan Chayon", "Shum bola", "Sariq devni minib", "Ikki eshik orasi","Fotima va Zuhra"]
+        let html=""
+        for(let nomi of kitoblarRoyxati){
+            html = html + `<p>${nomi}</p>`
+        }
+        document.getElementById("card").innerHTML=html
+    </script>
+</body>
+</html>

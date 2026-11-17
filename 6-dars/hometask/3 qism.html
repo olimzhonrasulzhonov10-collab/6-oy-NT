@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          .card1{
+            border: 2px solid black;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 20px;
+            align-items: center;
+        }
+        #kitoblar{
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .kam{
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Massivdan kitob kartalari</h1>
+    <h3>3. Shartli klass</h3>
+    <div id="kitoblar">
+
+    </div>
+    <script>
+        let mahsulotlar=[
+            {nomi:"O'tkan kunlar" , yozuvchisi: "Abdulla Qodiriy", narxi: "45000 so'm", stock: 4},           
+            {nomi:"Mehrobdan Chayon" , yozuvchisi: "Abdulla Qodiriy", narxi: "38000 so'm", stock: 6},
+            {nomi:"Shum Bola" , yozuvchisi: "G'afur G'ulom", narxi: "60000 so'm", stock: 5},
+            {nomi:"Sariq devni minib" , yozuvchisi: "Xudoyberdi To'xtaboyev", narxi: "30000 so'm", stock: 1},
+            {nomi:"Ikki eshik orasi" , yozuvchisi: "O'tkir Hoshimov", narxi: "52000 so'm", stock:3},
+            {nomi:"Fotima va Zuhra" , yozuvchisi: "O'lmas Umarbekov", narxi: "80000 so'm", stock:4}
+        ]
+        let html="";
+        for(let kitoblar of mahsulotlar){
+            if(kitoblar.stock <= 3){
+             html = html+
+            `
+             <div class="card1 kam">
+                <h3>${kitoblar.nomi}</h3>
+                <p>${kitoblar.yozuvchisi}</p>
+                <p>${kitoblar.narxi}</p>
+            </div>
+            `;  
+            }else{
+                html = html+
+                `
+                 <div class="card1">
+                    <h3>${kitoblar.nomi}</h3>
+                    <p>${kitoblar.yozuvchisi}</p>
+                    <p>${kitoblar.narxi}</p>
+                </div>
+                `
+            }
+        }
+        document.getElementById("kitoblar").innerHTML=html
+    </script>
+</body>
+</html>
